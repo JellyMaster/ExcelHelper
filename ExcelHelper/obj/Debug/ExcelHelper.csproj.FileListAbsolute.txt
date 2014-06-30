@@ -1,0 +1,12 @@
+C:\Git\ExcelHelper\ExcelHelper\bin\Debug\ExcelHelper.dll
+C:\Git\ExcelHelper\ExcelHelper\bin\Debug\ExcelHelper.pdb
+C:\Git\ExcelHelper\ExcelHelper\bin\Debug\ICSharpCode.SharpZipLib.dll
+C:\Git\ExcelHelper\ExcelHelper\bin\Debug\NPOI.dll
+C:\Git\ExcelHelper\ExcelHelper\bin\Debug\NPOI.OOXML.dll
+C:\Git\ExcelHelper\ExcelHelper\bin\Debug\NPOI.OpenXml4Net.dll
+C:\Git\ExcelHelper\ExcelHelper\bin\Debug\NPOI.OpenXmlFormats.dll
+C:\Git\ExcelHelper\ExcelHelper\bin\Debug\NPOI.xml
+C:\Git\ExcelHelper\ExcelHelper\bin\Debug\NPOI.OOXML.xml
+C:\Git\ExcelHelper\ExcelHelper\bin\Debug\NPOI.OpenXml4Net.xml
+C:\Git\ExcelHelper\ExcelHelper\obj\Debug\ExcelHelper.dll
+C:\Git\ExcelHelper\ExcelHelper\obj\Debug\ExcelHelper.pdb

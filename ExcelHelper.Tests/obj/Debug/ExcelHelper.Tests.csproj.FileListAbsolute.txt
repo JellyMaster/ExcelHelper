@@ -1,0 +1,17 @@
+C:\Git\ExcelHelper\ExcelHelper.Tests\bin\Debug\ExcelHelper.Tests.dll
+C:\Git\ExcelHelper\ExcelHelper.Tests\bin\Debug\ExcelHelper.Tests.pdb
+C:\Git\ExcelHelper\ExcelHelper.Tests\bin\Debug\ExcelHelper.dll
+C:\Git\ExcelHelper\ExcelHelper.Tests\bin\Debug\NPOI.dll
+C:\Git\ExcelHelper\ExcelHelper.Tests\bin\Debug\NPOI.OOXML.dll
+C:\Git\ExcelHelper\ExcelHelper.Tests\bin\Debug\ICSharpCode.SharpZipLib.dll
+C:\Git\ExcelHelper\ExcelHelper.Tests\bin\Debug\NPOI.OpenXmlFormats.dll
+C:\Git\ExcelHelper\ExcelHelper.Tests\bin\Debug\NPOI.OpenXml4Net.dll
+C:\Git\ExcelHelper\ExcelHelper.Tests\bin\Debug\ExcelHelper.pdb
+C:\Git\ExcelHelper\ExcelHelper.Tests\bin\Debug\NPOI.xml
+C:\Git\ExcelHelper\ExcelHelper.Tests\bin\Debug\NPOI.OOXML.xml
+C:\Git\ExcelHelper\ExcelHelper.Tests\bin\Debug\NPOI.OpenXml4Net.xml
+C:\Git\ExcelHelper\ExcelHelper.Tests\obj\Debug\ExcelHelper.Tests.csprojResolveAssemblyReference.cache
+C:\Git\ExcelHelper\ExcelHelper.Tests\obj\Debug\ExcelHelper.Tests.dll
+C:\Git\ExcelHelper\ExcelHelper.Tests\obj\Debug\ExcelHelper.Tests.pdb
+C:\Git\ExcelHelper\ExcelHelper.Tests\bin\Debug\Book1-one sheet.xlsx
+C:\Git\ExcelHelper\ExcelHelper.Tests\bin\Debug\Book1 - multi sheet.xlsx
