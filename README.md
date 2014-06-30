@@ -1,4 +1,4 @@
 ExcelHelper
 ===========
 
-A simple project for read and writing data to/from Excel using NPOI
+A simple project for reading and writing data to/from Excel using NPOI
