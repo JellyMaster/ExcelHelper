@@ -383,7 +383,7 @@ namespace ExcelHelper
             if (streamToProcess != null)
             {
 
-                if (fileExtentison == "xlsx")
+                if (fileExtentison.ToLower() == "xlsx")
                 {
                     XSSFWorkbook workbook = new XSSFWorkbook(streamToProcess);
 
