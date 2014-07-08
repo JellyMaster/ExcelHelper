@@ -29,7 +29,7 @@ namespace ExcelHelper
             PropertyInfo[] properties = typeof(T).GetProperties(BindingFlags.Public | BindingFlags.Instance);
 
             List<PropertyInfo> FilterPropertyInfo = new List<PropertyInfo>();
-            List<KeyValuePair<int, PropertyInfo>> propertyPairs = new List<KeyValuePair<int, PropertyInfo>>();
+            List<KeyValuePair<double, PropertyInfo>> propertyPairs = new List<KeyValuePair<double, PropertyInfo>>();
 
             foreach (PropertyInfo prop in properties)
             {
@@ -38,7 +38,7 @@ namespace ExcelHelper
                 if (!ExcelOutputSuppress(prop))
                 {
 
-                    propertyPairs.Add(new KeyValuePair<int, PropertyInfo>(ExcelOutputOrder(prop), prop));
+                    propertyPairs.Add(new KeyValuePair<double, PropertyInfo>(ExcelOutputOrder(prop), prop));
 
                 }
             }
@@ -277,9 +277,9 @@ namespace ExcelHelper
 
 
 
-        public static int ExcelOutputOrder(PropertyInfo property)
+        public static double ExcelOutputOrder(PropertyInfo property)
         {
-            int model = -1;
+            double model = -1;
             var order = property.GetCustomAttribute<ExcelOutputBinding>();
 
 
@@ -380,6 +380,16 @@ namespace ExcelHelper
                     {
                         valid = true;
                     }
+                    else
+                    {
+                        //last check is for the new excel binding value 
+                        var excelBinding = property.GetCustomAttribute<ExcelOutputBinding>();
+
+                        if (excelBinding != null && columnName == excelBinding.Name)
+                        {
+                            valid = true;
+                        }
+                    }
 
 
                 }
@@ -390,4 +400,5 @@ namespace ExcelHelper
         }
 
     }
+
 }

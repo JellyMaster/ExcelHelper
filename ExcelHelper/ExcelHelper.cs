@@ -15,13 +15,216 @@ namespace ExcelHelper
     public static class ExcelHelper
     {
 
+        public enum ExcelType
+        {
+            Xls,
+            Xlsx
+        }
 
 
-        public static MemoryStream CreateExcelSheet(DataSet dataToProcess)
+
+        public static MemoryStream CreateExcelSheet(DataSet dataToProcess, ExcelType excelType = ExcelType.Xlsx)
         {
             MemoryStream stream = new MemoryStream();
+            try
+            {
+                if (dataToProcess != null)
+                {
 
-            if (dataToProcess != null)
+                    switch (excelType)
+                    {
+                        case ExcelType.Xls:
+                            {
+                                stream = CreateXlsDocument(dataToProcess);
+
+                                break;
+
+                            }
+                        case ExcelType.Xlsx:
+                            {
+                                stream = CreateXlsxDocument(dataToProcess);
+                                break;
+                            }
+                    }
+
+
+
+                }
+
+            }
+            catch (Exception error)
+            {
+                throw error;
+            }
+
+            return stream;
+        }
+
+
+
+
+
+
+
+        private static MemoryStream CreateXlsxDocument(DataSet dataToProcess)
+        {
+            MemoryStream stream = new MemoryStream();
+            int rowNumber = 1;
+            try
+            {
+                var excelworkbook = new XSSFWorkbook();
+
+                foreach (DataTable table in dataToProcess.Tables)
+                {
+                    var worksheet = excelworkbook.CreateSheet();
+
+                    var headerRow = worksheet.CreateRow(0);
+
+                    foreach (DataColumn column in table.Columns)
+                    {
+                        headerRow.CreateCell(table.Columns.IndexOf(column)).SetCellValue(column.ColumnName);
+
+                    }
+
+                    //freeze top panel. 
+                    worksheet.CreateFreezePane(0, 1, 0, 1);
+
+
+                    IDataFormat dateformat = worksheet.Workbook.CreateDataFormat();
+                    ICellStyle dateCellStyle = worksheet.Workbook.CreateCellStyle();
+                    dateCellStyle.DataFormat = dateformat.GetFormat("dd MMM yyyy");
+
+
+                    IDataFormat doubleformat = worksheet.Workbook.CreateDataFormat();
+                    ICellStyle doubleStyle = worksheet.Workbook.CreateCellStyle();
+                    doubleStyle.DataFormat = doubleformat.GetFormat("0.00");
+
+                    IDataFormat intformat = worksheet.Workbook.CreateDataFormat();
+                    ICellStyle intStyle = worksheet.Workbook.CreateCellStyle();
+                    intStyle.DataFormat = intformat.GetFormat("0");
+
+                    foreach (DataRow row in table.Rows)
+                    {
+                        var sheetRow = worksheet.CreateRow(rowNumber++);
+
+                        foreach (DataColumn column in table.Columns)
+                        {
+                            bool boolValue = false;
+                            string stringValue = row[column].ToString();
+                            double doubleValue = 0;
+                            IRichTextString richTextValue = null;
+                            DateTime dateTimeValue = new DateTime();
+
+                            ICell cell = sheetRow.CreateCell(table.Columns.IndexOf(column));
+
+
+
+
+                            switch (column.DataType.FullName)
+                            {
+                                case "System.DateTime":
+                                    {
+                                        if (DateTime.TryParse(stringValue, out dateTimeValue))
+                                        {
+
+                                            cell.SetCellValue(dateTimeValue);
+
+
+                                            cell.CellStyle = dateCellStyle;
+
+
+                                        }
+                                        else
+                                        {
+                                            sheetRow.CreateCell(table.Columns.IndexOf(column)).SetCellValue(stringValue);
+                                        }
+                                        break;
+                                    }
+                                case "System.Int32":
+                                    {
+                                        if (double.TryParse(stringValue, out doubleValue))
+                                        {
+                                            cell.SetCellValue(doubleValue);
+
+                                            cell.CellStyle = intStyle;
+
+
+                                        }
+                                        else
+                                        {
+                                            sheetRow.CreateCell(table.Columns.IndexOf(column)).SetCellValue(stringValue);
+                                        }
+
+                                        break;
+                                    }
+                                case "System.Double":
+                                    {
+                                        if (double.TryParse(stringValue, out doubleValue))
+                                        {
+                                            cell.SetCellValue(doubleValue);
+
+                                            cell.CellStyle = doubleStyle;
+
+
+                                        }
+                                        else
+                                        {
+                                            sheetRow.CreateCell(table.Columns.IndexOf(column)).SetCellValue(stringValue);
+                                        }
+
+                                        break;
+                                    }
+                                case "System.Boolean":
+                                    {
+                                        if (bool.TryParse(stringValue, out boolValue))
+                                        {
+                                            sheetRow.CreateCell(table.Columns.IndexOf(column)).SetCellValue(boolValue);
+                                        }
+                                        else
+                                        {
+                                            sheetRow.CreateCell(table.Columns.IndexOf(column)).SetCellValue(stringValue);
+                                        }
+
+                                        break;
+                                    }
+
+                                default:
+                                    {
+
+                                        sheetRow.CreateCell(table.Columns.IndexOf(column)).SetCellValue(stringValue);
+                                        break;
+                                    }
+                            }
+
+
+
+
+
+
+
+                        }
+
+
+                    }
+
+                }
+
+                excelworkbook.Write(stream);
+            }
+            catch (Exception error)
+            {
+                throw error;
+            }
+
+            return stream;
+        }
+
+
+
+        private static MemoryStream CreateXlsDocument(DataSet dataToProcess)
+        {
+            MemoryStream stream = new MemoryStream();
+            try
             {
                 var excelworkbook = new HSSFWorkbook();
 
@@ -41,6 +244,21 @@ namespace ExcelHelper
                     worksheet.CreateFreezePane(0, 1, 0, 1);
 
 
+                    IDataFormat dateformat = worksheet.Workbook.CreateDataFormat();
+                    ICellStyle dateCellStyle = worksheet.Workbook.CreateCellStyle();
+                    dateCellStyle.DataFormat = dateformat.GetFormat("dd MMM yyyy");
+
+
+                    IDataFormat doubleformat = worksheet.Workbook.CreateDataFormat();
+                    ICellStyle doubleStyle = worksheet.Workbook.CreateCellStyle();
+                    doubleStyle.DataFormat = doubleformat.GetFormat("0.00");
+
+                    IDataFormat intformat = worksheet.Workbook.CreateDataFormat();
+                    ICellStyle intStyle = worksheet.Workbook.CreateCellStyle();
+                    intStyle.DataFormat = intformat.GetFormat("0");
+
+
+
                     int rowNumber = 1;
 
                     foreach (DataRow row in table.Rows)
@@ -49,7 +267,94 @@ namespace ExcelHelper
 
                         foreach (DataColumn column in table.Columns)
                         {
-                            sheetRow.CreateCell(table.Columns.IndexOf(column)).SetCellValue(row[column].ToString());
+                            bool boolValue = false;
+                            string stringValue = row[column].ToString();
+                            double doubleValue = 0;
+                            IRichTextString richTextValue = null;
+                            DateTime dateTimeValue = new DateTime();
+
+
+                            ICell cell = sheetRow.CreateCell(table.Columns.IndexOf(column));
+
+
+
+
+                            switch (column.DataType.FullName)
+                            {
+                                case "System.DateTime":
+                                    {
+                                        if (DateTime.TryParse(stringValue, out dateTimeValue))
+                                        {
+
+                                            cell.SetCellValue(dateTimeValue);
+
+
+                                            cell.CellStyle = dateCellStyle;
+
+
+                                        }
+                                        else
+                                        {
+                                            sheetRow.CreateCell(table.Columns.IndexOf(column)).SetCellValue(stringValue);
+                                        }
+                                        break;
+                                    }
+                                case "System.Int32":
+                                    {
+                                        if (double.TryParse(stringValue, out doubleValue))
+                                        {
+                                            cell.SetCellValue(doubleValue);
+
+                                            cell.CellStyle = intStyle;
+
+
+                                        }
+                                        else
+                                        {
+                                            sheetRow.CreateCell(table.Columns.IndexOf(column)).SetCellValue(stringValue);
+                                        }
+
+                                        break;
+                                    }
+                                case "System.Double":
+                                    {
+                                        if (double.TryParse(stringValue, out doubleValue))
+                                        {
+                                            cell.SetCellValue(doubleValue);
+
+                                            cell.CellStyle = doubleStyle;
+
+
+                                        }
+                                        else
+                                        {
+                                            sheetRow.CreateCell(table.Columns.IndexOf(column)).SetCellValue(stringValue);
+                                        }
+
+                                        break;
+                                    }
+                                case "System.Boolean":
+                                    {
+                                        if (bool.TryParse(stringValue, out boolValue))
+                                        {
+                                            sheetRow.CreateCell(table.Columns.IndexOf(column)).SetCellValue(boolValue);
+                                        }
+                                        else
+                                        {
+                                            sheetRow.CreateCell(table.Columns.IndexOf(column)).SetCellValue(stringValue);
+                                        }
+
+                                        break;
+                                    }
+
+                                default:
+                                    {
+
+                                        sheetRow.CreateCell(table.Columns.IndexOf(column)).SetCellValue(stringValue);
+                                        break;
+                                    }
+                            }
+
                         }
 
 
@@ -59,10 +364,13 @@ namespace ExcelHelper
 
                 excelworkbook.Write(stream);
             }
-
-
+            catch (Exception error)
+            {
+                throw error;
+            }
 
             return stream;
+
         }
 
         public static DataSet CreateDataSetFromExcel(Stream streamToProcess, string fileExtentison = "xlsx")
@@ -105,7 +413,7 @@ namespace ExcelHelper
             DataSet model = new DataSet();
             for (int index = 0; index < workbook.NumberOfSheets; index++)
             {
-                ISheet sheet = workbook.GetSheetAt(0);
+                ISheet sheet = workbook.GetSheetAt(index);
 
                 if (sheet != null)
                 {

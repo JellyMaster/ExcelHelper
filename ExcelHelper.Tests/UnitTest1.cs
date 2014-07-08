@@ -17,7 +17,7 @@ namespace ExcelHelper.Tests
 
 
 
-            DataSet dataset = ExcelHelper.CreateDataSetFromExcel(stream, "xlsx");
+            DataSet dataset = ExcelHelper.CreateDataSetFromExcel(stream, ExcelHelper.ExcelType.Xlsx.ToString());
 
 
             Debug.WriteLine(string.Format("Found Number of columns: {0}", dataset.Tables[0].Columns.Count));
@@ -41,7 +41,7 @@ namespace ExcelHelper.Tests
 
 
 
-            DataSet dataset = ExcelHelper.CreateDataSetFromExcel(stream, "xlsx");
+            DataSet dataset = ExcelHelper.CreateDataSetFromExcel(stream,ExcelHelper.ExcelType.Xlsx.ToString() );
 
 
             Debug.WriteLine(string.Format("Found Number of columns: {0} in table 1", dataset.Tables[0].Columns.Count));
@@ -86,5 +86,9 @@ namespace ExcelHelper.Tests
 
             Assert.IsTrue(File.Exists(@"C:\Git\ExcelHelper\ExcelHelper.Tests\bin\savedfile.xls"));
         }
+
+
+        
+
     }
 }

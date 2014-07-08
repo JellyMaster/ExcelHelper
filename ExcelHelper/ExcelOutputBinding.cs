@@ -9,26 +9,19 @@ namespace ExcelHelper
     public class ExcelOutputBinding : Attribute
     {
 
-        public enum CellFormat
-        {
-            String,
-            Numeric,
-            Date,
-            Time,
-            DateTime
-        }
+ 
 
 
         public bool Suppress { get; set; }
 
-        public int Order { get; set; }
+        public double Order { get; set; }
 
         public string Name { get; set; }
 
         public bool Hide { get; set; }
 
 
-        public CellFormat Format { get; set; }
+ 
 
 
         public ExcelOutputBinding()
@@ -37,7 +30,7 @@ namespace ExcelHelper
             Order = -1;
             Name = string.Empty;
             Hide = false;
-            Format = CellFormat.String;
+            
         }
 
 
