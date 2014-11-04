@@ -6,7 +6,7 @@ A simple project for reading and writing data to/from Excel using NPOI
 
 For a sample export here is some quick code: 
 
- public ActionResult Export()
+      public ActionResult Export()
         {
             List<MyModel> model = new List<MyModel>();
 
