@@ -32,3 +32,32 @@ C:\Git\ExcelHelperGithub\ExcelHelper.Tests\bin\Debug\NPOI.OpenXml4Net.xml
 C:\Git\ExcelHelperGithub\ExcelHelper.Tests\obj\Debug\ExcelHelper.Tests.csprojResolveAssemblyReference.cache
 C:\Git\ExcelHelperGithub\ExcelHelper.Tests\obj\Debug\ExcelHelper.Tests.dll
 C:\Git\ExcelHelperGithub\ExcelHelper.Tests\obj\Debug\ExcelHelper.Tests.pdb
+E:\Git\ExcelHelper.Tests\bin\Debug\Book1-one sheet.xlsx
+E:\Git\ExcelHelper.Tests\bin\Debug\Book1 - multi sheet.xlsx
+E:\Git\ExcelHelper.Tests\bin\Debug\ExcelHelper.Tests.dll.config
+E:\Git\ExcelHelper.Tests\bin\Debug\ExcelHelper.Tests.dll
+E:\Git\ExcelHelper.Tests\bin\Debug\ExcelHelper.Tests.pdb
+E:\Git\ExcelHelper.Tests\bin\Debug\ExcelHelper.dll
+E:\Git\ExcelHelper.Tests\bin\Debug\Microsoft.VisualStudio.QualityTools.UnitTestFramework.dll
+E:\Git\ExcelHelper.Tests\bin\Debug\NPOI.OOXML.dll
+E:\Git\ExcelHelper.Tests\bin\Debug\NPOI.dll
+E:\Git\ExcelHelper.Tests\bin\Debug\NPOI.OpenXml4Net.dll
+E:\Git\ExcelHelper.Tests\bin\Debug\NPOI.OpenXmlFormats.dll
+E:\Git\ExcelHelper.Tests\bin\Debug\ExcelHelper.pdb
+E:\Git\ExcelHelper.Tests\bin\Debug\ExcelHelper.dll.config
+E:\Git\ExcelHelper.Tests\bin\Debug\NPOI.OOXML.pdb
+E:\Git\ExcelHelper.Tests\bin\Debug\NPOI.OOXML.xml
+E:\Git\ExcelHelper.Tests\bin\Debug\NPOI.pdb
+E:\Git\ExcelHelper.Tests\bin\Debug\NPOI.xml
+E:\Git\ExcelHelper.Tests\bin\Debug\NPOI.OpenXml4Net.pdb
+E:\Git\ExcelHelper.Tests\bin\Debug\NPOI.OpenXmlFormats.pdb
+E:\Git\ExcelHelper.Tests\obj\Debug\ExcelHelper.Tests.csproj.AssemblyReference.cache
+E:\Git\ExcelHelper.Tests\obj\Debug\ExcelHelper.Tests.csproj.CoreCompileInputs.cache
+E:\Git\ExcelHelper.Tests\obj\Debug\ExcelHelper.Tests.csproj.CopyComplete
+E:\Git\ExcelHelper.Tests\obj\Debug\ExcelHelper.Tests.dll
+E:\Git\ExcelHelper.Tests\obj\Debug\ExcelHelper.Tests.pdb
+E:\Git\ExcelHelper.Tests\bin\Debug\BouncyCastle.Crypto.dll
+E:\Git\ExcelHelper.Tests\bin\Debug\ICSharpCode.SharpZipLib.dll
+E:\Git\ExcelHelper.Tests\bin\Debug\BouncyCastle.Crypto.xml
+E:\Git\ExcelHelper.Tests\bin\Debug\ICSharpCode.SharpZipLib.pdb
+E:\Git\ExcelHelper.Tests\bin\Debug\ICSharpCode.SharpZipLib.xml

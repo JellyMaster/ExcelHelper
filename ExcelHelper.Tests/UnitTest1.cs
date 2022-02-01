@@ -78,13 +78,13 @@ namespace ExcelHelper.Tests
 
 
 
-            File.WriteAllBytes(@"C:\Git\ExcelHelperGithub\ExcelHelper.Tests\bin\savedfile.xlsx", stream2.GetBuffer());
+            File.WriteAllBytes(@"savedfile.xlsx", stream2.GetBuffer());
 
-            FileInfo file = new FileInfo(@"C:\Git\ExcelHelperGithub\ExcelHelper.Tests\bin\savedfile.xlsx");
+            FileInfo file = new FileInfo(@"savedfile.xlsx");
 
             Debug.WriteLine(file.FullName);
 
-            Assert.IsTrue(File.Exists(@"C:\Git\ExcelHelperGithub\ExcelHelper.Tests\bin\savedfile.xlsx"));
+            Assert.IsTrue(File.Exists(@"savedfile.xlsx"));
         }
 
 
